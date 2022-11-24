@@ -1,0 +1,118 @@
+<!DOCTYPE HTML>
+<head>
+    <!-- QQCard BEGIN -->
+    <meta itemprop="name" content="检测窥屏！"/>
+    <meta itemprop="image" content="/api/getimg/{{ GroupId }}/icon.jpg" />
+    <meta name="description" itemprop="description" content="哦不！请不要打开！" />
+    <!-- QQCard END -->
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+    integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+    crossorigin="anonymous"
+    />
+    <style>
+    .pagebg {
+        display: grid;
+        
+    }
+    .main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .main-sec{
+        margin:5%;
+    }
+</style>
+    <title>{{GroupId}} | Who is peeping?</title>
+</head>
+
+<body class="mdui-theme-primary-blue mdui-theme-accent-white mdui-theme-layout-auto">
+    <div id="page">
+        <div class="mdui-appbar mdui-shadow-5">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="/" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">menu</i>
+                </a>
+                <a href="javascript:;" class="mdui-typo-headline">Who is peeping?</a>
+                <a href="javascript:;" class="mdui-typo-title">群 {{GroupId}}</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:search();" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">search</i>
+                </a>
+                <a href="javascript:refresh();" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">refresh</i>
+                </a>
+            </div>
+        </div>
+        <div class="pagebg">
+            <div><br />
+                <div class="main mdui-shadow-5">
+                    <div class="main-sec">
+                        <br />
+                        <h2>实时统计 - 群{{GroupId}}</h2>
+                        <p>开始检测时间：{{createdTime}}</p>
+                        <ul class="mdui-list">
+                            {% for person in peeperList %}
+                                <li class="mdui-list-item mdui-ripple">
+                                    <div class="mdui-list-item-avatar">
+                                        <i class="mdui-list-item-avatar mdui-icon material-icons">person</i>
+                                    </div>
+                                    <div class="mdui-list-item-content">
+                                        <div class="mdui-list-item-title">{{ person['ip'][:-2] + '**' }}</div>
+                                        <div class="mdui-list-item-text mdui-list-item-one-line">
+                                            <span class="mdui-text-color-theme-text">{{ person['userAgent'] }}</span>
+                                            </div>
+                                    </div>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                        <br />
+                        <p>分享链接到QQ群，检测有谁窥屏吧！</p>
+                        <div class="mdui-typo">
+                            <blockquote>
+                                <h4>如何使用？</h4>
+                                <p>复制链接网址，以消息卡片的形式发送到你要检测的群，然后等待！</p>
+                                <h4>有API嘛？</h4>
+                                <p>当然！</p>
+                                <pre>API URL: /api/search
+请求方法: GET
+请求参数: GroupId
+响应值：
+{
+    "groupId": 123456, //群号
+    "createdTime": 61827628181, //查询开始的时间戳
+    "peeperList":[ //窥屏者列表
+        {
+            "ip":"127.0.0.1", //IP地址
+            "userAgent":".. " //用户User-Agent
+        }
+    ]
+}
+                                </pre>
+                                QQ机器人可以通过xml消息的形式发送卡片。
+                            </blockquote>
+                        </div>
+                        <br />
+                        <br />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <center>
+            <div class="mdui-typo-caption-opacity">
+                Powered by HydroGest. All rights reserved.
+            </div>
+        </center>
+    </footer>
+    <script>
+        //const form = document.getElementById('gid')
+    </script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+    integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+    crossorigin="anonymous"
+    ></script>
+</body>

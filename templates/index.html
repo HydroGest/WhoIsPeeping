@@ -1,0 +1,82 @@
+<!DOCTYPE HTML>
+<head>
+    <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/css/mdui.min.css"
+    integrity="sha384-cLRrMq39HOZdvE0j6yBojO4+1PrHfB7a9l5qLcmRm/fiWXYY+CndJPmyu5FV/9Tw"
+    crossorigin="anonymous"
+    />
+    <style>
+    .pagebg {
+        display: grid;
+        
+    }
+    .main{
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+    .main-sec{
+        margin:5%;
+    }
+</style>
+    <title>Who is peeping?</title>
+</head>
+
+<body class="mdui-theme-primary-blue mdui-theme-accent-white mdui-theme-layout-auto">
+    <div id="page">
+        <div class="mdui-appbar mdui-shadow-5">
+            <div class="mdui-toolbar mdui-color-theme">
+                <a href="javascript:;" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">home</i>
+                </a>
+                <a href="javascript:;" class="mdui-typo-headline">Who is peeping?</a>
+                <a href="javascript:;" class="mdui-typo-title">首页</a>
+                <div class="mdui-toolbar-spacer"></div>
+                <a href="javascript:search();" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">search</i>
+                </a>
+                <a href="javascript:refresh();" class="mdui-btn mdui-btn-icon">
+                    <i class="mdui-icon material-icons">refresh</i>
+                </a>
+            </div>
+        </div>
+        <div class="pagebg">
+            <div><br />
+                <div class="main mdui-shadow-5">
+                    <div class="main-sec">
+                        <br />
+                        <h2>查询QQ群窥屏情况</h2>
+                        <form action="/search" method="GET" id="gid">
+                            <div class="mdui-textfield mdui-textfield-floating-label">
+                                <label class="mdui-textfield-label">QQ群号</label>
+                                <input id="GroupId" name="GroupId" class="mdui-textfield-input" type="number"/>
+                                <div class="mdui-textfield-helper">输入QQ群号开启/查看一个检测。</div>
+                            </div>
+                            <center>
+                                <button type="submit" class="mdui-btn mdui-color-theme-primary mdui-ripple">查询</button>
+                            </center>
+                            <br />
+                            <p>本站只会收集IP地址、浏览器标识，并承诺不会将IP地址泄露。请放心使用。</p>
+                            <br/>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <center>
+            <div class="mdui-typo-caption-opacity">
+                Powered by HydroGest. All rights reserved.
+            </div>
+        </center>
+    </footer>
+    <script>
+        //const form = document.getElementById('gid')
+    </script>
+    <script
+    src="https://cdn.jsdelivr.net/npm/mdui@1.0.1/dist/js/mdui.min.js"
+    integrity="sha384-gCMZcshYKOGRX9r6wbDrvF+TcCCswSHFucUzUPwka+Gr+uHgjlYvkABr95TCOz3A"
+    crossorigin="anonymous"
+    ></script>
+</body>
