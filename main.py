@@ -50,6 +50,7 @@ def search():
     })
     return render_template(
         'group.html',
+        currentTime=time.time(),
         GroupId=groupId,
         createdTime=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(groupInfo['createdTime'])),
         peeperList=groupInfo['peeperList']
@@ -66,8 +67,8 @@ def api():
     })
     return groupInfo
 
-@app.route('/api/getimg/<groupId>/icon.jpg')
-def imgget(groupId):
+@app.route('/api/getimg/<groupId>/<string>/icon.jpg')
+def imgget(groupId,string):
     ip = request.remote_addr
     userAgent = request.headers.get("User-Agent")
     groupInfo = SearchObject(groupId,{
