@@ -9,3 +9,7 @@
 ```shell
 pip install flask
 ```
+
+```shell
+sudo ./rundev.sh
+```
